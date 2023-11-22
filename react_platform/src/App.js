@@ -1,4 +1,4 @@
-import { GlobalStyle } from './globalstyles';
+import { GlobalStyle } from './globalstyle';
 
 import {
   BrowserRouter as Router,
