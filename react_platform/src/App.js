@@ -6,12 +6,14 @@ import {
   Route,
 } from 'react-router-dom';
 
+import { Home } from './pages/home';
+
 function App() {
   return (
     <Router>
       <GlobalStyle />
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<Home />}/>
       </Routes>
     </Router>
 
