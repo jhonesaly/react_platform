@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../../assets/logo-name.png'
+import logo from '../../assets/logo-name.png';
 
-import { Button } from '../Button';
+import { Navigator } from '../Navigator';
 
 import { Container, Logo } from './styles';
 
@@ -10,9 +10,9 @@ const Header = ({logado}) => {
     <Container>
             <Logo src={logo} alt="Logo da plataforma"/>
             {logado ? (<>
-                <Button title='Sair' />
+                <Navigator title='Sair' />
             </>) : (<>
-                <Button title='Entrar' />
+                <Navigator title='Entrar' />
             </>)}
     </Container>
     )
