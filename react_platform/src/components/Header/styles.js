@@ -11,3 +11,11 @@ export const Logo = styled.img`
   height: 60px;
   margin: 0 40px;   
 `
+
+export const UserIcon = styled.img`
+    width: 30px;
+    height: 30px;
+    border-radius: 22px;
+    border: 3px solid #fff;
+    margin-left: auto;
+`
