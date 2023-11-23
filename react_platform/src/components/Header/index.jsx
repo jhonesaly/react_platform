@@ -8,15 +8,24 @@ import { Button } from '../Button';
 
 import { Container, Menu, Logo, UserIcon} from './styles';
 
-const Header = ({login}) => {
+import { useAuth } from '../../services/AuthContext';
+
+const Header = () => {
 
     const navigate = useNavigate();
+    const { login, handleLogin, handleLogout } = useAuth();
 
     const handleClickEntrar = () => {
         navigate('/login');
+        handleLogin();
     }
 
     const handleClickSair = () => {
+        handleLogout();
+        navigate('/');
+    }
+
+    const handleClickHome = () => {
         navigate('/');
     }
 
@@ -29,6 +38,7 @@ const Header = ({login}) => {
                 <Button title='Home' onClick={handleClickSair}/>
                 <Button title='Sair' onClick={handleClickSair}/>
             </>) : (<>
+                <Button title='Home' onClick={handleClickSair}/>
                 <Button title='Entrar' onClick={handleClickEntrar} />
             </>)}
             </Menu>
