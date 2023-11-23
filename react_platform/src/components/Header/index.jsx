@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from '../../assets/logo-name.png'
 
+import { Button } from '../Button';
+
 import { Container, Logo } from './styles';
 
 const Header = ({logado}) => {
@@ -8,9 +10,9 @@ const Header = ({logado}) => {
     <Container>
             <Logo src={logo} alt="Logo da plataforma"/>
             {logado ? (<>
-                <button>Sair</button>
+                <Button title='Sair' />
             </>) : (<>
-                <button>Entrar</button>
+                <Button title='Entrar' />
             </>)}
     </Container>
     )
