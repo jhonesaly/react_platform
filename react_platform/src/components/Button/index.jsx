@@ -1,8 +1,10 @@
 import React from 'react'
 
+import { ButtonContainer } from './styles';
+
 const Button = ({title, onClick}) => {
     return(
-        <button onClick={onClick}>{title}</button>
+        <ButtonContainer onClick={onClick}>{title}</ButtonContainer>
     )
 }
 
