@@ -15,7 +15,8 @@ export const NavigatorContainer = styled.a`
     align-items: center;
     justify-content: center;
 
-    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 4px 3px rgba(255, 255, 255, 0.5);
+    text-decoration: none;
 
     &:hover {
         background: #999;

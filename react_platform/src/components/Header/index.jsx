@@ -12,7 +12,7 @@ const Header = ({logado}) => {
             {logado ? (<>
                 <Navigator title='Sair' />
             </>) : (<>
-                <Navigator title='Entrar' />
+                <Navigator title='Entrar' href='/login' />
             </>)}
     </Container>
     )
