@@ -6,32 +6,32 @@ import { useNavigate } from "react-router-dom";
 
 import { Button } from '../Button';
 
-import { Container, Logo, UserIcon} from './styles';
+import { Container, Menu, Logo, UserIcon} from './styles';
 
-const Header = () => {
+const Header = ({login}) => {
 
     const navigate = useNavigate();
-    const [login, setLogin] = useState(false)
 
     const handleClickEntrar = () => {
-        setLogin(true);
         navigate('/login');
     }
 
     const handleClickSair = () => {
-        setLogin(false);
         navigate('/');
     }
 
     return (
     <Container>
             <Logo src={logo} alt="Logo da plataforma"/>
+            <Menu>
             {login ? (<>
                 <UserIcon src={usericon} alt="Imagem do usuário"/>
+                <Button title='Home' onClick={handleClickSair}/>
                 <Button title='Sair' onClick={handleClickSair}/>
             </>) : (<>
                 <Button title='Entrar' onClick={handleClickEntrar} />
             </>)}
+            </Menu>
     </Container>
     )
 }

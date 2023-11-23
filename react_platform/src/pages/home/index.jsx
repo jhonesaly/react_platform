@@ -1,8 +1,8 @@
 import { Header } from '../../components/Header';
 
-const Home = () => {
+const Home = ({login}) => {
     return (<>
-        <Header/>
+        <Header login={true}/>
     </>)
 }
 
