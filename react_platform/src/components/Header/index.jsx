@@ -8,11 +8,11 @@ import { UserIcon } from '../UserIcon';
 
 import { Container, Logo } from './styles';
 
-const Header = ({logado}) => {
+const Header = ({login}) => {
     return (
     <Container>
             <Logo src={logo} alt="Logo da plataforma"/>
-            {logado ? (<>
+            {login ? (<>
                 <UserIcon src={usericon} alt="Imagem do usuário"/>
                 <Button title='Sair' />
             </>) : (<>
