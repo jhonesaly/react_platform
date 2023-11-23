@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../../assets/logo-name.png';
 import usericon from '../../assets/anon_icon.jpg';
 
@@ -35,7 +35,7 @@ const Header = () => {
             <Menu>
             {login ? (<>
                 <UserIcon src={usericon} alt="Imagem do usuário"/>
-                <Button title='Home' onClick={handleClickSair}/>
+                <Button title='Home' onClick={handleClickHome}/>
                 <Button title='Sair' onClick={handleClickSair}/>
             </>) : (<>
                 <Button title='Home' onClick={handleClickSair}/>
