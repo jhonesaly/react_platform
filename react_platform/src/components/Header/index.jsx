@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../assets/logo-name.png';
 import usericon from '../../assets/anon_icon.jpg';
 
-import { Navigator } from '../Navigator';
+import { useNavigate } from "react-router-dom";
+
 import { Button } from '../Button';
 
 import { Container, Logo, UserIcon} from './styles';
 
-const Header = ({login}) => {
+const Header = () => {
+
+    const navigate = useNavigate();
+    const [login, setLogin] = useState(false)
+
+    const handleClickEntrar = () => {
+        setLogin(true);
+        navigate('/login');
+    }
+
+    const handleClickSair = () => {
+        setLogin(false);
+        navigate('/');
+    }
+
     return (
     <Container>
             <Logo src={logo} alt="Logo da plataforma"/>
             {login ? (<>
                 <UserIcon src={usericon} alt="Imagem do usuário"/>
-                <Button title='Sair' />
+                <Button title='Sair' onClick={handleClickSair}/>
             </>) : (<>
-                <Navigator title='Entrar' href='/login' />
+                <Button title='Entrar' onClick={handleClickEntrar} />
             </>)}
     </Container>
     )
