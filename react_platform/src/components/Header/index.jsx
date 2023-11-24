@@ -13,11 +13,10 @@ import { useAuth } from '../../services/AuthContext';
 const Header = () => {
 
     const navigate = useNavigate();
-    const { login, handleLogin, handleLogout } = useAuth();
+    const { login, handleLogout } = useAuth();
 
     const handleClickEntrar = () => {
         navigate('/login');
-        handleLogin();
     }
 
     const handleClickSair = () => {
