@@ -1,16 +1,15 @@
 import { Header } from '../../components/Header';
-
-import { ContentContainer, Column } from './styles';
+import { ContentContainer, Column, Title } from './styles';
 
 const Login = () => {
     return (<>
         <Header/>
         <ContentContainer>
             <Column>
-                <h1>Novo Cadastro</h1>
+                <Title>CADASTRO</Title>
             </Column>
             <Column>
-                <h1>Já possuo cadastro</h1>
+                <Title>ENTRAR</Title>
             </Column>
         </ContentContainer>
     </>)

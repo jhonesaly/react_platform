@@ -11,4 +11,14 @@ export const Column = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    &:not(:last-child) {
+        border-right: 3px solid #fff;
+    }
+`
+
+export const Title = styled.h1`
+    font-family: 'Arial';
+    font-weight: 700;
+    font-size: 32px;
+    margin: 10px;
 `
