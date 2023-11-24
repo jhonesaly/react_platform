@@ -6,11 +6,11 @@ export const ButtonContainer = styled.button`
     color: #FFF;
     width: 100px;
     margin: 10px 15px;
-    margin-left: auto;
+    padding: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
 
     &:hover {
-        background: #999; /* Altera a cor de fundo ao passar o mouse por cima */
+        background: #999;
     }
 `
