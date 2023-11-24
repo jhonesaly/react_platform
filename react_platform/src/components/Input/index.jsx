@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { InputContainer } from './styles';
+import { InputContainer, IconContainer } from './styles';
 
 const Input = ({leftIcon, ...rest}) => {
     return(
         <InputContainer>
-            {leftIcon ? (<>{leftIcon}</>) : null}
+            {leftIcon ? (<IconContainer>{leftIcon}</IconContainer>) : null}
         </InputContainer>
     )
 }
