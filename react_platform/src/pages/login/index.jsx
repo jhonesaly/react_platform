@@ -26,7 +26,7 @@ const Login = () => {
     const handleClickEnviarLogin = async (formData) => {
         try{
             const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
-
+            console.log(data)
             if(DataTransfer.length && data[0].id){
                 handleLogin();
                 navigate('/');
@@ -51,9 +51,9 @@ const Login = () => {
             <Column>
                 <Title>CADASTRO</Title>
                 <form onSubmit={handleSubmit(handleClickEnviarSignin)}>
-                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "email" control={control}/>
+                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "emailsignin" control={control}/>
                     {errors.email && <span>E-mail é obrigatório</span>}
-                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senha" control={control}/>
+                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhasignin" control={control}/>
                     {errors.email && <span>Senha é obrigatória</span>}
                     <Button title="Enviar" type="submit"/>
                 </form>
@@ -61,9 +61,9 @@ const Login = () => {
             <Column>
                 <Title>ENTRAR</Title>
                 <form onSubmit={handleSubmit(handleClickEnviarLogin)}>
-                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "email" control={control}/>
+                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "emaillogin" control={control}/>
                     {errors.email && <span>E-mail é obrigatório</span>}
-                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senha" control={control}/>
+                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhalogin" control={control}/>
                     {errors.email && <span>Senha é obrigatória</span>}
                     <Button title="Enviar" type="submit"/>
                 </form>
