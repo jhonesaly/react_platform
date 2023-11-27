@@ -52,7 +52,9 @@ const Login = () => {
                 <Title>CADASTRO</Title>
                 <form onSubmit={handleSubmit(handleClickEnviarSignin)}>
                     <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "email" control={control}/>
+                    {errors.email && <span>E-mail é obrigatório</span>}
                     <Input leftIcon={<MdLock />} placeholder="Senha" name = "senha" control={control}/>
+                    {errors.email && <span>Senha é obrigatória</span>}
                     <Button title="Enviar" onClick={handleClickEnviarSignin}/>
                 </form>
             </Column>
