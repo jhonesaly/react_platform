@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../assets/logo-name.png';
-import usericon from '../../assets/anon_icon.jpg';
+import defaultIcon from '../../assets/anon_icon.jpg';
 
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +13,7 @@ import { useAuth } from '../../services/AuthContext';
 const Header = () => {
 
     const navigate = useNavigate();
-    const { login, handleLogout } = useAuth();
+    const { login, user, handleLogout } = useAuth();
 
     const handleClickEntrar = () => {
         navigate('/login');
@@ -28,14 +28,29 @@ const Header = () => {
         navigate('/');
     }
 
+    const renderUserIcon = () => {
+        if (login && user.image) {
+            try {
+                const userImagePath = require(`../../db/images/${user.image}`);
+                console.log('user.image:' + user.image)
+                console.log('userImagePath: ' + userImagePath)
+                return <UserIcon src={userImagePath} alt="Imagem do usuário" />;
+            } catch (error) {
+                console.error(`Erro ao importar a imagem: ${error}`);
+            }
+        }
+        return <UserIcon src={defaultIcon} alt="Imagem do usuário" />;
+    };
+
     return (
     <Container>
             <Logo src={logo} alt="Logo da plataforma"/>
             <Menu>
-            {login ? (<>
-                <UserIcon src={usericon} alt="Imagem do usuário"/>
-                <Button title='Home' onClick={handleClickHome}/>
-                <Button title='Sair' onClick={handleClickSair}/>
+            {login ? (
+                <>
+                    {renderUserIcon()}
+                    <Button title='Home' onClick={handleClickHome}/>
+                    <Button title='Sair' onClick={handleClickSair}/>
             </>) : (<>
                 <Button title='Home' onClick={handleClickSair}/>
                 <Button title='Entrar' onClick={handleClickEntrar} />

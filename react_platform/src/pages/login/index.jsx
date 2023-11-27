@@ -26,9 +26,8 @@ const Login = () => {
     const handleClickEnviarLogin = async (formData) => {
         try{
             const {data} = await api.get(`/users?email=${formData.emaillogin}&senha=${formData.senhalogin}`);
-            console.log(data)
             if(data.length && data[0].id){
-                handleLogin();
+                handleLogin(data[0]);
                 navigate('/');
             } else {
                 alert('Usuário ou senha inválido')
