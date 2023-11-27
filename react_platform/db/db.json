@@ -1,0 +1,6 @@
+{
+    "users": [
+      { "id": 1, "name": "Alyson", "email": "alyson@email.com", "senha":"123456", "image":"/images/alyson.png" },
+      { "id": 2, "name": "Jhones", "email": "jhones@email.com", "senha":"123456", "image":"/images/jhones.jpg" }
+    ]
+}
