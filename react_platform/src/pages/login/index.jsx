@@ -25,9 +25,9 @@ const Login = () => {
 
     const handleClickEnviarLogin = async (formData) => {
         try{
-            const {data} = await api.get(`/users?email=${formData.email}&senha=${formData.senha}`);
+            const {data} = await api.get(`/users?email=${formData.emaillogin}&senha=${formData.senhalogin}`);
             console.log(data)
-            if(DataTransfer.length && data[0].id){
+            if(data.length && data[0].id){
                 handleLogin();
                 navigate('/');
             } else {
