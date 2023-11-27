@@ -14,3 +14,13 @@ export const IconContainer = styled.div`
     margin-right: 10px;
     margin-left: 10px;
 `
+
+export const InputText = styled.input`
+    color: #fff;
+    background-color: transparent;
+    flex:1;
+    border:0;
+    height: 25px;
+    padding: 5px;
+    width:70%;
+`

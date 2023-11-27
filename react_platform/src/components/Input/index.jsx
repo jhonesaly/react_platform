@@ -1,7 +1,7 @@
 import React from 'react';
 import { Controller } from 'react-hook-form'; 
 
-import { InputContainer, IconContainer } from './styles';
+import { InputContainer, IconContainer, InputText } from './styles';
 
 const Input = ({leftIcon, name, control, placeholder}) => {
     return(
@@ -10,7 +10,7 @@ const Input = ({leftIcon, name, control, placeholder}) => {
             <Controller 
                 name={name}
                 control={control}
-                render={({ field }) => <input {...field} placeholder={placeholder}/>}
+                render={({ field }) => <InputText {...field} placeholder={placeholder}/>}
             />
         </InputContainer>
     )
