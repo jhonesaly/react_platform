@@ -10,6 +10,8 @@ import { useAuth } from '../../services/AuthContext';
 
 import { useForm } from 'react-hook-form';
 
+import { MdEmail } from 'react-icons/md';
+
 const Login = () => {
 
     const navigate = useNavigate();
@@ -35,7 +37,7 @@ const Login = () => {
         <ContentContainer>
             <Column>
                 <Title>CADASTRO</Title>
-                <Input placeholder="E-mail" name = "email" control={control}/>
+                <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "email" control={control}/>
                 <Button title="Enviar" onClick={handleClickEnviarSignin}/>
             </Column>
             <Column>
