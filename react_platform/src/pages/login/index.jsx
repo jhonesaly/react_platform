@@ -11,7 +11,7 @@ import { api } from '../../services/api';
 
 import { useForm } from 'react-hook-form';
 
-import { MdEmail } from 'react-icons/md';
+import { MdEmail, MdLock } from 'react-icons/md';
 
 const Login = () => {
 
@@ -50,8 +50,11 @@ const Login = () => {
         <ContentContainer>
             <Column>
                 <Title>CADASTRO</Title>
-                <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "email" control={control}/>
-                <Button title="Enviar" onClick={handleClickEnviarSignin}/>
+                <form onSubmit={handleSubmit(handleClickEnviarSignin)}>
+                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "email" control={control}/>
+                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senha" control={control}/>
+                    <Button title="Enviar" onClick={handleClickEnviarSignin}/>
+                </form>
             </Column>
             <Column>
                 <Title>ENTRAR</Title>
