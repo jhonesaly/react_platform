@@ -55,12 +55,18 @@ const Login = () => {
                     {errors.email && <span>E-mail é obrigatório</span>}
                     <Input leftIcon={<MdLock />} placeholder="Senha" name = "senha" control={control}/>
                     {errors.email && <span>Senha é obrigatória</span>}
-                    <Button title="Enviar" onClick={handleClickEnviarSignin}/>
+                    <Button title="Enviar" type="submit"/>
                 </form>
             </Column>
             <Column>
                 <Title>ENTRAR</Title>
-                <Button title="Enviar" onClick={handleClickEnviarLogin}/>
+                <form onSubmit={handleSubmit(handleClickEnviarLogin)}>
+                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "email" control={control}/>
+                    {errors.email && <span>E-mail é obrigatório</span>}
+                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senha" control={control}/>
+                    {errors.email && <span>Senha é obrigatória</span>}
+                    <Button title="Enviar" type="submit"/>
+                </form>
             </Column>
         </ContentContainer>
     </>)
