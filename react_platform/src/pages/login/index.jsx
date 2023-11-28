@@ -52,13 +52,13 @@ const Login = () => {
 
                 <form onSubmit={handleSubmit(handleClickEnviarSignin)}>
                     <Input leftIcon={<MdPerson />} placeholder="Nome" name="namesignin" control={control}/>
-                    {errors.email && <span>Nome é obrigatório</span>}
+                    {errors.namesignin && <span>Nome é obrigatório</span>}
                     
                     <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "emailsignin" control={control}/>
-                    {errors.email && <span>E-mail é obrigatório</span>}
+                    {errors.emailsignin && <span>E-mail é obrigatório</span>}
                     
                     <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhasignin" control={control}/>
-                    {errors.email && <span>Senha é obrigatória</span>}
+                    {errors.senhasignin && <span>Senha é obrigatória</span>}
                     
                     <label>
                         Deseja enviar uma foto?
@@ -91,9 +91,9 @@ const Login = () => {
                 <Title>ENTRAR</Title>
                 <form onSubmit={handleSubmit(handleClickEnviarLogin)}>
                     <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "emaillogin" control={control}/>
-                    {errors.email && <span>E-mail é obrigatório</span>}
+                    {errors.emaillogin && <span>E-mail é obrigatório</span>}
                     <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhalogin" control={control}/>
-                    {errors.email && <span>Senha é obrigatória</span>}
+                    {errors.senhalogin && <span>Senha é obrigatória</span>}
                     <Button title="Enviar" type="submit"/>
                 </form>
             </Column>
