@@ -60,18 +60,19 @@ const Login = () => {
                     <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhasignin" control={control}/>
                     {errors.senhasignin && <span>Senha é obrigatória</span>}
                     
-                    <label>
-                        Deseja enviar uma foto?
+                    <div>
                         <input
                             type="checkbox"
+                            id="uploadPhoto"
                             name="uploadPhoto"
                             {...register('uploadPhoto')}
                             checked={watch('uploadPhoto')}
                         />
-                    </label>
+                        <label htmlFor="uploadPhoto">Deseja enviar uma foto?</label>
+                    </div>
 
                     {watch('uploadPhoto') && (
-                        <>
+                        <div>
                             <input
                                 type="file"
                                 name="profilePhoto"
@@ -81,7 +82,7 @@ const Login = () => {
                                     setValue('uploadPhoto', true);
                                 }}
                             />
-                        </>
+                        </div>
                     )}
 
                     <Button title="Enviar" type="submit" />
