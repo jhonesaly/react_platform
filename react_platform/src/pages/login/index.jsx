@@ -18,7 +18,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { handleLogin } = useAuth();
 
-    const { control, handleSubmit, formState: { errors }, register, watch } = useForm({
+    const { control, handleSubmit, formState: { errors } } = useForm({
         reValidateMode: 'onChange',
         mode: 'onChange',
     })
@@ -41,24 +41,17 @@ const Login = () => {
 
     const handleClickEnviarSignin = async (formData) => {
         try{
-            const { namesignin, emailsignin, senhasignin, uploadPhoto, profilePhoto } = formData;
+            const { namesignin, emailsignin, senhasignin } = formData;
             const userData = {
                 name: namesignin,
                 email: emailsignin,
                 senha: senhasignin,
             };
 
-            if (uploadPhoto && profilePhoto) {
-                const formData = new FormData();
-                formData.append('profilePhoto', profilePhoto[0]);
-                userData.image = profilePhoto[0].name;
-            }
-
             const response = await api.post('/users', userData);
 
             if (response.data && response.data.id) {
-                alert('Cadastro realizado com sucesso!');
-                navigate('/');
+                alert('Cadastro realizado com sucesso! Faça o login para entrar na plataforma.');
             } else {
                 alert('Erro ao cadastrar usuário');
             }
@@ -84,28 +77,6 @@ const Login = () => {
                     
                     <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhasignin" control={control}/>
                     {errors.senhasignin && <span>Senha é obrigatória</span>}
-                    
-                    <div>
-                        <input
-                            type="checkbox"
-                            id="uploadPhoto"
-                            name="uploadPhoto"
-                            {...register('uploadPhoto')}
-                            checked={watch('uploadPhoto')}
-                        />
-                        <label htmlFor="uploadPhoto">Deseja enviar uma foto?</label>
-                    </div>
-
-                    {watch('uploadPhoto') && (
-                        <div>
-                            <input
-                                type="file"
-                                name="profilePhoto"
-                                {...register('profilePhoto')}
-                                accept="image/*"
-                            />
-                        </div>
-                    )}
 
                     <Button title="Enviar" type="submit" />
                 </form>

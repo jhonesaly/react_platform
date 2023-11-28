@@ -15,16 +15,9 @@
     },
     {
       "name": "tester",
-      "email": "test@email.com",
+      "email": "test@mail.com",
       "senha": "123",
       "id": 3
-    },
-    {
-      "name": "tester2",
-      "email": "test2@mail.com",
-      "senha": "123",
-      "image": "5ca20ed5-12b3-491c-9970-db690b8b14bb.jpg",
-      "id": 4
     }
   ]
 }
