@@ -19,7 +19,7 @@ const Login = () => {
     const { handleLogin } = useAuth();
 
     const { control, handleSubmit, formState: { errors }, setValue, register, watch } = useForm({
-        reValidadeMode: 'onChange',
+        reValidateMode: 'onChange',
         mode: 'onChange',
     })
 
