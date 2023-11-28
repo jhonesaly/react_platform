@@ -12,12 +12,6 @@
       "email": "jhones@email.com",
       "senha": "123456",
       "image": "jhones.png"
-    },
-    {
-      "name": "tester",
-      "email": "test@mail.com",
-      "senha": "123",
-      "id": 3
     }
   ]
 }
