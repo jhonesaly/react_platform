@@ -18,7 +18,7 @@ const Login = () => {
     const navigate = useNavigate();
     const { handleLogin } = useAuth();
 
-    const { control, handleSubmit, formState: { errors }, setValue, register, watch } = useForm({
+    const { control, handleSubmit, formState: { errors }, register, watch } = useForm({
         reValidateMode: 'onChange',
         mode: 'onChange',
     })
@@ -39,9 +39,34 @@ const Login = () => {
         }
     }
 
-    const handleClickEnviarSignin = () => {
-        navigate('/');
-        handleLogin();
+    const handleClickEnviarSignin = async (formData) => {
+        try{
+            const { namesignin, emailsignin, senhasignin, uploadPhoto, profilePhoto } = formData;
+            const userData = {
+                name: namesignin,
+                email: emailsignin,
+                senha: senhasignin,
+            };
+
+            if (uploadPhoto && profilePhoto) {
+                const formData = new FormData();
+                formData.append('profilePhoto', profilePhoto[0]);
+                userData.image = profilePhoto[0].name;
+            }
+
+            const response = await api.post('/users', userData);
+
+            if (response.data && response.data.id) {
+                alert('Cadastro realizado com sucesso!');
+                navigate('/');
+            } else {
+                alert('Erro ao cadastrar usuário');
+            }
+
+        }catch (error) {
+            alert('Erro: ', error);
+        }
+
     }
 
     return (<>
@@ -78,9 +103,6 @@ const Login = () => {
                                 name="profilePhoto"
                                 {...register('profilePhoto')}
                                 accept="image/*"
-                                onChange={(e) => {
-                                    setValue('uploadPhoto', true);
-                                }}
                             />
                         </div>
                     )}
