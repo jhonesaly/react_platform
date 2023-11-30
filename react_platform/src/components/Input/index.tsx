@@ -3,7 +3,9 @@ import { Controller } from 'react-hook-form';
 
 import { InputContainer, IconContainer, InputText } from './styles';
 
-const Input = ({leftIcon, name, control, placeholder}) => {
+import { IInput } from './types'
+
+const Input = ({leftIcon, name, control, placeholder}: IInput) => {
     return(
         <InputContainer>
             {leftIcon ? (<IconContainer>{leftIcon}</IconContainer>) : null}
