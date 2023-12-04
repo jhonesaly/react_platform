@@ -15,7 +15,7 @@ import * as yup from "yup";
 
 import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
 
-const schemaLogin = yup
+const schemaSignin = yup
     .object({
         namesignin: yup
             .string()
@@ -36,7 +36,7 @@ const schemaLogin = yup
             .required("Campo obrigatório"),
     }).required();
 
-const Login = () => {
+const Signin = () => {
 
     const navigate = useNavigate();
     const { handleLogin } = useAuth();
@@ -95,29 +95,38 @@ const Login = () => {
         <Header/>
         <ContentContainer>
             <Column>
-                <Title>ENTRAR</Title>
-                <form onSubmit={handleSubmit(handleClickEnviarLogin)}>
+                <Title>CADASTRO</Title>
+
+                <form onSubmit={handleSubmit(handleClickEnviarSignin)}>
                     <Input 
-                        name = "emaillogin" 
-                        leftIcon={<MdEmail />} 
-                        placeholder="E-mail"  
+                        name="namesignin" 
+                        leftIcon={<MdPerson />} 
+                        placeholder="Nome"  
                         control={control}
+                        errorMessage={errors?.name?.message}
+                    />
+                    
+                    <Input 
+                        name = "emailsignin" 
+                        leftIcon={<MdEmail />} 
+                        placeholder="E-mail" 
+                        control={control} 
                         errorMessage={errors?.email?.message}
                     />
-
+                    
                     <Input 
-                        name = "senhalogin" 
+                        name = "senhasignin"
                         leftIcon={<MdLock />} 
-                        placeholder="Senha"  
+                        placeholder="Senha" 
                         control={control}
                         errorMessage={errors?.password?.message}
                     />
 
-                    <Button title="Enviar" type="submit"/>
+                    <Button title="Enviar" type="submit" />
                 </form>
             </Column>
         </ContentContainer>
     </>)
 }
 
-export { Login }
+export { Signin }

@@ -19,6 +19,10 @@ const Header = () => {
         navigate('/login');
     }
 
+    const handleClickCadastrar = () => {
+        navigate('/signin');
+    }
+
     const handleClickSair = () => {
         handleLogout();
         navigate('/');
@@ -53,7 +57,9 @@ const Header = () => {
                     <Button title='Sair' onClick={handleClickSair}/>
             </>) : (<>
                 <Button title='Home' onClick={handleClickSair}/>
-                <Button title='Entrar' onClick={handleClickEntrar} />
+                <Button title='Entrar' onClick={handleClickEntrar}/>
+                <Button title='Cadastrar' onClick={handleClickCadastrar}/>
+
             </>)}
             </Menu>
     </Container>
