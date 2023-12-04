@@ -15,6 +15,19 @@ import * as yup from "yup";
 
 import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
 
+const schema = yup
+    .object({
+        email: yup
+            .string()
+            .email("E-mail inválido")
+            .required("Campo obrigatório"),
+        password: yup
+            .string()
+            .min(6, "No mínimo 6 caracteres")
+            .required("Campo obrigatório"),
+    })
+    .required();
+
 const Login = () => {
 
     const navigate = useNavigate();
