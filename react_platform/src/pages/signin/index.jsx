@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+
+
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
@@ -29,6 +32,8 @@ const schemaSignin = yup
 
 const Signin = () => {
 
+    const navigate = useNavigate();
+
     const { 
         control, 
         handleSubmit, 
@@ -52,6 +57,7 @@ const Signin = () => {
             const response = await api.post('/users', userData);
 
             if (response.data && response.data.id) {
+                navigate('/');
                 alert('Cadastro realizado com sucesso! Faça o login para entrar na plataforma.');
             } else {
                 alert('Erro ao cadastrar usuário');

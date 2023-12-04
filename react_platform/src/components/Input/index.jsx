@@ -2,7 +2,7 @@ import { Controller } from 'react-hook-form';
 
 import { InputContainer, IconContainer, InputText } from './styles';
 
-const Input = ({leftIcon, name, control, placeholder, errorMessage, ...rest}) => {
+const Input = ({leftIcon, name, control, placeholder, errorMessage}) => {
     return(<>
         <InputContainer>
             {leftIcon ? (<IconContainer>{leftIcon}</IconContainer>) : null}
