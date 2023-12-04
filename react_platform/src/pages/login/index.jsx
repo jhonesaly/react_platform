@@ -10,6 +10,8 @@ import { useAuth } from '../../services/AuthContext';
 import { api } from '../../services/api';
 
 import { useForm } from 'react-hook-form';
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
 
