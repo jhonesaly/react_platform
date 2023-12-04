@@ -2,10 +2,8 @@ import { Controller } from 'react-hook-form';
 
 import { InputContainer, IconContainer, InputText } from './styles';
 
-import { IInput } from './types'
-
-const Input = ({leftIcon, name, control, placeholder}: IInput) => {
-    return(
+const Input = ({leftIcon, name, control, placeholder, errorMessage, ...rest}) => {
+    return(<>
         <InputContainer>
             {leftIcon ? (<IconContainer>{leftIcon}</IconContainer>) : null}
             <Controller 
@@ -14,6 +12,8 @@ const Input = ({leftIcon, name, control, placeholder}: IInput) => {
                 render={({ field }) => <InputText {...field} placeholder={placeholder}/>}
             />
         </InputContainer>
+        {errorMessage ? <p>{errorMessage}</p> : null}
+        </>
     )
 }
 

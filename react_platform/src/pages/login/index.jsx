@@ -17,25 +17,39 @@ import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
 
 const schema = yup
     .object({
-        email: yup
+        namesignin: yup
+            .string()
+            .required("Campo obrigatório"),
+        emailsignin: yup
             .string()
             .email("E-mail inválido")
             .required("Campo obrigatório"),
-        password: yup
+        senhasignin: yup
             .string()
             .min(6, "No mínimo 6 caracteres")
             .required("Campo obrigatório"),
+        emaillogin: yup
+            .string()
+            .required("Campo obrigatório"),
+        senhalogin: yup
+            .string()
+            .required("Campo obrigatório"),
     })
-    .required();
 
 const Login = () => {
 
     const navigate = useNavigate();
     const { handleLogin } = useAuth();
 
-    const { control, handleSubmit, formState: { errors } } = useForm({
-        reValidateMode: 'onChange',
+    const { 
+        control, 
+        handleSubmit, 
+        formState: { errors } 
+    } = useForm({
+        //resolver: yupResolver(schema),
         mode: 'onChange',
+        reValidateMode: 'onChange',
+        
     })
 
     const handleClickEnviarLogin = async (formData) => {
@@ -45,14 +59,14 @@ const Login = () => {
                 handleLogin(data[0]);
                 navigate('/');
             } else {
-                alert('Usuário ou senha inválido')
+                alert('Usuário ou senha inválido');
             }
-
-            return
-        }catch(e){
-            alert('Erro: ', e)
+        } catch (e) {
+            console.error('Erro ao enviar dados para a API:', e);
         }
-    }
+    };
+    
+    
 
     const handleClickEnviarSignin = async (formData) => {
         try{
@@ -80,29 +94,56 @@ const Login = () => {
     return (<>
         <Header/>
         <ContentContainer>
-            <Column>
+            {/* <Column>
                 <Title>CADASTRO</Title>
 
                 <form onSubmit={handleSubmit(handleClickEnviarSignin)}>
-                    <Input leftIcon={<MdPerson />} placeholder="Nome" name="namesignin" control={control}/>
-                    {errors.namesignin && <span>Nome é obrigatório</span>}
+                    <Input 
+                        name="namesignin" 
+                        leftIcon={<MdPerson />} 
+                        placeholder="Nome"  
+                        control={control}
+                        errorMessage={errors?.name?.message}
+                    />
                     
-                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "emailsignin" control={control}/>
-                    {errors.emailsignin && <span>E-mail é obrigatório</span>}
+                    <Input 
+                        name = "emailsignin" 
+                        leftIcon={<MdEmail />} 
+                        placeholder="E-mail" 
+                        control={control} 
+                        errorMessage={errors?.email?.message}
+                    />
                     
-                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhasignin" control={control}/>
-                    {errors.senhasignin && <span>Senha é obrigatória</span>}
+                    <Input 
+                        name = "senhasignin"
+                        leftIcon={<MdLock />} 
+                        placeholder="Senha" 
+                        control={control}
+                        errorMessage={errors?.password?.message}
+                    />
 
                     <Button title="Enviar" type="submit" />
                 </form>
-            </Column>
+            </Column> */}
             <Column>
                 <Title>ENTRAR</Title>
                 <form onSubmit={handleSubmit(handleClickEnviarLogin)}>
-                    <Input leftIcon={<MdEmail />} placeholder="E-mail" name = "emaillogin" control={control}/>
-                    {errors.emaillogin && <span>E-mail é obrigatório</span>}
-                    <Input leftIcon={<MdLock />} placeholder="Senha" name = "senhalogin" control={control}/>
-                    {errors.senhalogin && <span>Senha é obrigatória</span>}
+                    <Input 
+                        name = "emaillogin" 
+                        leftIcon={<MdEmail />} 
+                        placeholder="E-mail"  
+                        control={control}
+                        errorMessage={errors?.email?.message}
+                    />
+
+                    <Input 
+                        name = "senhalogin" 
+                        leftIcon={<MdLock />} 
+                        placeholder="Senha"  
+                        control={control}
+                        errorMessage={errors?.password?.message}
+                    />
+
                     <Button title="Enviar" type="submit"/>
                 </form>
             </Column>
