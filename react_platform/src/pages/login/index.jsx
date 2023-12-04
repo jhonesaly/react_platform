@@ -34,7 +34,7 @@ const schema = yup
         senhalogin: yup
             .string()
             .required("Campo obrigatório"),
-    })
+    }).required();
 
 const Login = () => {
 
@@ -94,7 +94,7 @@ const Login = () => {
     return (<>
         <Header/>
         <ContentContainer>
-            {/* <Column>
+            <Column>
                 <Title>CADASTRO</Title>
 
                 <form onSubmit={handleSubmit(handleClickEnviarSignin)}>
@@ -124,7 +124,7 @@ const Login = () => {
 
                     <Button title="Enviar" type="submit" />
                 </form>
-            </Column> */}
+            </Column>
             <Column>
                 <Title>ENTRAR</Title>
                 <form onSubmit={handleSubmit(handleClickEnviarLogin)}>
