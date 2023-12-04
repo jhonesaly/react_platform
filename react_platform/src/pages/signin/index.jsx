@@ -25,12 +25,6 @@ const schemaSignin = yup
             .string()
             .min(6, "No mínimo 6 caracteres")
             .required("Campo obrigatório"),
-        emaillogin: yup
-            .string()
-            .required("Campo obrigatório"),
-        senhalogin: yup
-            .string()
-            .required("Campo obrigatório"),
     }).required();
 
 const Signin = () => {
