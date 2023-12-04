@@ -81,7 +81,7 @@ const Signin = () => {
                         leftIcon={<MdPerson />} 
                         placeholder="Nome"  
                         control={control}
-                        errorMessage={errors?.name?.message}
+                        errorMessage={errors?.namesignin?.message}
                     />
                     
                     <Input 
@@ -89,7 +89,7 @@ const Signin = () => {
                         leftIcon={<MdEmail />} 
                         placeholder="E-mail" 
                         control={control} 
-                        errorMessage={errors?.email?.message}
+                        errorMessage={errors?.emailsignin?.message}
                     />
                     
                     <Input 
@@ -97,7 +97,7 @@ const Signin = () => {
                         leftIcon={<MdLock />} 
                         placeholder="Senha" 
                         control={control}
-                        errorMessage={errors?.password?.message}
+                        errorMessage={errors?.senhasignin?.message}
                     />
 
                     <Button title="Enviar" type="submit" />

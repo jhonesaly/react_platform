@@ -66,7 +66,7 @@ const Login = () => {
                         leftIcon={<MdEmail />} 
                         placeholder="E-mail"  
                         control={control}
-                        errorMessage={errors?.email?.message}
+                        errorMessage={errors?.emaillogin?.message}
                     />
 
                     <Input 
@@ -74,7 +74,7 @@ const Login = () => {
                         leftIcon={<MdLock />} 
                         placeholder="Senha"  
                         control={control}
-                        errorMessage={errors?.password?.message}
+                        errorMessage={errors?.senhalogin?.message}
                     />
 
                     <Button title="Enviar" type="submit"/>
