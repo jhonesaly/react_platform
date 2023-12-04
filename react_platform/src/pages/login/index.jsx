@@ -17,17 +17,6 @@ import { MdEmail, MdLock } from 'react-icons/md';
 
 const schemaLogin = yup
     .object({
-        namesignin: yup
-            .string()
-            .required("Campo obrigatório"),
-        emailsignin: yup
-            .string()
-            .email("E-mail inválido")
-            .required("Campo obrigatório"),
-        senhasignin: yup
-            .string()
-            .min(6, "No mínimo 6 caracteres")
-            .required("Campo obrigatório"),
         emaillogin: yup
             .string()
             .required("Campo obrigatório"),
