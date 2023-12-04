@@ -1,12 +1,9 @@
-import { useNavigate } from "react-router-dom";
-
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
 
 import { ContentContainer, Column, Title } from './styles';
 
-import { useAuth } from '../../services/AuthContext';
 import { api } from '../../services/api';
 
 import { useForm } from 'react-hook-form';
@@ -38,35 +35,16 @@ const schemaSignin = yup
 
 const Signin = () => {
 
-    const navigate = useNavigate();
-    const { handleLogin } = useAuth();
-
     const { 
         control, 
         handleSubmit, 
         formState: { errors } 
     } = useForm({
-        //resolver: yupResolver(schema),
+        resolver: yupResolver(schemaSignin),
         mode: 'onChange',
         reValidateMode: 'onChange',
         
     })
-
-    const handleClickEnviarLogin = async (formData) => {
-        try{
-            const {data} = await api.get(`/users?email=${formData.emaillogin}&senha=${formData.senhalogin}`);
-            if(data.length && data[0].id){
-                handleLogin(data[0]);
-                navigate('/');
-            } else {
-                alert('Usuário ou senha inválido');
-            }
-        } catch (e) {
-            console.error('Erro ao enviar dados para a API:', e);
-        }
-    };
-    
-    
 
     const handleClickEnviarSignin = async (formData) => {
         try{

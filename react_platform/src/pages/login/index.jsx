@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
+import { MdEmail, MdLock } from 'react-icons/md';
 
 const schemaLogin = yup
     .object({
@@ -46,7 +46,7 @@ const Login = () => {
         handleSubmit, 
         formState: { errors } 
     } = useForm({
-        //resolver: yupResolver(schema),
+        resolver: yupResolver(schemaLogin),
         mode: 'onChange',
         reValidateMode: 'onChange',
         
@@ -65,31 +65,6 @@ const Login = () => {
             console.error('Erro ao enviar dados para a API:', e);
         }
     };
-    
-    
-
-    const handleClickEnviarSignin = async (formData) => {
-        try{
-            const { namesignin, emailsignin, senhasignin } = formData;
-            const userData = {
-                name: namesignin,
-                email: emailsignin,
-                senha: senhasignin,
-            };
-
-            const response = await api.post('/users', userData);
-
-            if (response.data && response.data.id) {
-                alert('Cadastro realizado com sucesso! Faça o login para entrar na plataforma.');
-            } else {
-                alert('Erro ao cadastrar usuário');
-            }
-
-        }catch (error) {
-            alert('Erro: ', error);
-        }
-
-    }
 
     return (<>
         <Header/>
