@@ -39,7 +39,9 @@ const Signin = () => {
         handleSubmit, 
         formState: { errors } 
     } = useForm({
-        resolver: yupResolver(schemaSignin),      
+        resolver: yupResolver(schemaSignin),
+        mode: 'onBlur',
+        reValidateMode: 'onChange',
     })
 
     const handleClickEnviarSignin = async (formData) => {
