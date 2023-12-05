@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 
-
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Input } from '../../components/Input';
@@ -37,7 +36,7 @@ const Signin = () => {
     const { 
         control, 
         handleSubmit, 
-        formState: { errors } 
+        formState: { errors, isValid } 
     } = useForm({
         resolver: yupResolver(schemaSignin),
         mode: 'onBlur',
@@ -65,7 +64,6 @@ const Signin = () => {
         }catch (error) {
             alert('Erro: ', error);
         }
-
     }
 
     return (<>
@@ -98,8 +96,7 @@ const Signin = () => {
                         control={control}
                         errorMessage={errors?.senhasignin?.message}
                     />
-
-                    <Button title="Enviar" type="submit" />
+                    <Button title="Enviar" type="submit" disabled={!isValid}/>
                 </form>
             </Column>
         </ContentContainer>
