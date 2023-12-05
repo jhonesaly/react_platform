@@ -1,10 +1,10 @@
-import React from 'react'
-
 import { ButtonContainer } from './styles';
 
-const Button = ({title, onClick}) => {
+const Button = ({title, onClick, disabled=false}) => {
     return(
-        <ButtonContainer onClick={onClick}>{title}</ButtonContainer>
+        <ButtonContainer onClick={onClick} disabled={disabled}>
+            {title}
+        </ButtonContainer>
     )
 }
 
