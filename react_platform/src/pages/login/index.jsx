@@ -36,9 +36,6 @@ const Login = () => {
         formState: { errors } 
     } = useForm({
         resolver: yupResolver(schemaLogin),
-        mode: 'onChange',
-        reValidateMode: 'onChange',
-        
     })
 
     const handleClickEnviarLogin = async (formData) => {
